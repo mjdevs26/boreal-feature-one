@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts';
+import { Zap, TrendingUp, Info } from 'lucide-react';
 import { MOCK_POWER } from '../../constants';
 
 const CustomTooltip = ({ active, payload, label }: any) => {
@@ -12,14 +13,14 @@ const CustomTooltip = ({ active, payload, label }: any) => {
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-[#32E07E]"></div>
-              <span className="text-xs text-slate-300">Hem. Norte</span>
+              <span className="text-xs text-slate-300">Norte</span>
             </div>
             <span className="text-xs font-bold text-[#32E07E]">{payload[0].value.toFixed(1)} GW</span>
           </div>
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-[#F9CE1D]"></div>
-              <span className="text-xs text-slate-300">Hem. Sur</span>
+              <span className="text-xs text-slate-300">Sur</span>
             </div>
             <span className="text-xs font-bold text-[#F9CE1D]">{payload[1].value.toFixed(1)} GW</span>
           </div>
@@ -35,7 +36,10 @@ const PowerGraph: React.FC = () => {
     <div className="flex flex-col gap-6 h-full">
       <div className="flex justify-between items-end">
         <div>
-          <h3 className="text-slate-200 text-lg font-bold">Hemispheric Power</h3>
+          <h3 className="text-slate-200 text-lg font-bold flex items-center gap-2">
+            <TrendingUp size={18} className="text-[#32E07E]" />
+            Hemispheric Power
+          </h3>
           <p className="text-xs text-slate-500">Energía depositada en tiempo real (GW)</p>
         </div>
         <div className="flex gap-3">
@@ -53,7 +57,10 @@ const PowerGraph: React.FC = () => {
       <div className="relative w-full h-[320px] -ml-4">
         {/* Threshold indicator label */}
         <div className="absolute top-[28%] right-2 z-10">
-           <span className="text-[8px] font-bold text-[#FF5E5E]/60 uppercase tracking-tighter bg-[#0F0F1A] px-1">Threshold Active</span>
+           <span className="text-[8px] font-bold text-[#FF5E5E]/60 uppercase tracking-tighter bg-[#0F0F1A] px-1 flex items-center gap-1">
+             <Zap size={8} />
+             Threshold Active
+           </span>
         </div>
 
         <ResponsiveContainer width="100%" height="100%">
@@ -85,10 +92,8 @@ const PowerGraph: React.FC = () => {
             />
             <Tooltip content={<CustomTooltip />} cursor={{ stroke: '#ffffff20', strokeWidth: 1 }} />
             
-            {/* Critical Activity Threshold Line */}
             <ReferenceLine y={50} stroke="#FF5E5E" strokeDasharray="3 3" strokeOpacity={0.3} label={{ position: 'insideTopLeft', value: '50GW', fill: '#FF5E5E', fontSize: 8, opacity: 0.5 }} />
 
-            {/* South Hemisphere Area */}
             <Area 
                 type="monotone" 
                 dataKey="south" 
@@ -100,7 +105,6 @@ const PowerGraph: React.FC = () => {
                 animationDuration={2000}
             />
             
-            {/* North Hemisphere Area (Primary) */}
             <Area 
                 type="monotone" 
                 dataKey="north" 
@@ -118,7 +122,10 @@ const PowerGraph: React.FC = () => {
       <div className="grid grid-cols-2 gap-4">
         <div className="bg-white/5 border border-white/5 p-4 rounded-2xl flex flex-col gap-1 relative overflow-hidden group">
           <div className="absolute top-0 left-0 w-1 h-full bg-[#32E07E] opacity-50"></div>
-          <span className="text-[10px] text-slate-500 uppercase tracking-widest">Pico Norte</span>
+          <span className="text-[10px] text-slate-500 uppercase tracking-widest flex items-center gap-1">
+            <TrendingUp size={10} />
+            Pico Norte
+          </span>
           <div className="flex items-baseline gap-2">
             <span className="text-2xl font-black text-white">45.2</span>
             <span className="text-[10px] text-[#32E07E] font-bold">GW</span>
@@ -130,7 +137,10 @@ const PowerGraph: React.FC = () => {
 
         <div className="bg-white/5 border border-white/5 p-4 rounded-2xl flex flex-col gap-1 relative overflow-hidden group">
           <div className="absolute top-0 left-0 w-1 h-full bg-[#F9CE1D] opacity-50"></div>
-          <span className="text-[10px] text-slate-500 uppercase tracking-widest">Pico Sur</span>
+          <span className="text-[10px] text-slate-500 uppercase tracking-widest flex items-center gap-1">
+            <TrendingUp size={10} />
+            Pico Sur
+          </span>
           <div className="flex items-baseline gap-2">
             <span className="text-2xl font-black text-white">38.7</span>
             <span className="text-[10px] text-[#F9CE1D] font-bold">GW</span>
@@ -139,12 +149,6 @@ const PowerGraph: React.FC = () => {
             <div className="h-full bg-[#F9CE1D] w-[38%] rounded-full shadow-[0_0_10px_#F9CE1D50]"></div>
           </div>
         </div>
-      </div>
-
-      <div className="bg-[#32E07E]/5 border border-[#32E07E]/10 p-4 rounded-2xl">
-        <p className="text-[11px] text-[#32E07E]/80 text-center leading-relaxed font-medium">
-          La actividad hemisférica muestra una tendencia <span className="font-bold underline">ascendente</span> en las últimas 4 horas. Condiciones óptimas para observación cenital si el Bz se mantiene negativo.
-        </p>
       </div>
     </div>
   );

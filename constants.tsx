@@ -12,16 +12,16 @@ export const COLORS = {
 };
 
 export const MOCK_KP_LONG: KpData[] = [
-  { time: '00-03h', value: 4, clouds: 100, label: 'TODAY' },
-  { time: '03-06h', value: 3, clouds: 95, label: 'TODAY' },
-  { time: '06-09h', value: 3, clouds: 66, label: 'TODAY' },
-  { time: '09-12h', value: 3, clouds: 4, label: 'TODAY' },
-  { time: '12-15h', value: 3, clouds: 29, label: 'TODAY' },
-  { time: '15-18h', value: 4, clouds: 99, label: 'TODAY' },
-  { time: '18-21h', value: 2, clouds: 94, label: 'TODAY' },
-  { time: '21-00h', value: 5, clouds: 31, label: 'TOMORROW' },
-  { time: '00-03h', value: 5, clouds: 80, label: 'TOMORROW' },
-  { time: '03-06h', value: 4, clouds: 45, label: 'TOMORROW' },
+  { time: '00-03h', value: 4, clouds: 100, label: 'HOY' },
+  { time: '03-06h', value: 3, clouds: 95, label: 'HOY' },
+  { time: '06-09h', value: 3, clouds: 66, label: 'HOY' },
+  { time: '09-12h', value: 3, clouds: 4, label: 'HOY' },
+  { time: '12-15h', value: 3, clouds: 29, label: 'HOY' },
+  { time: '15-18h', value: 4, clouds: 99, label: 'HOY' },
+  { time: '18-21h', value: 2, clouds: 94, label: 'HOY' },
+  { time: '21-00h', value: 5, clouds: 31, label: 'MAÑANA' },
+  { time: '00-03h', value: 5, clouds: 80, label: 'MAÑANA' },
+  { time: '03-06h', value: 4, clouds: 45, label: 'MAÑANA' },
 ];
 
 export const MOCK_POWER: HemisphericPower[] = Array.from({ length: 24 }).map((_, i) => ({

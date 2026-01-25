@@ -51,7 +51,7 @@ const ShortForecast: React.FC = () => {
             Valor Kp
           </span>
           <span className="text-3xl font-black text-[#32E07E]">Kp 4</span>
-          <span className="text-[10px] text-slate-400 italic">Moderate Activity</span>
+          <span className="text-[10px] text-slate-400 italic">Actividad Moderada</span>
         </div>
         <div className="flex flex-col items-end gap-1">
           <span className="text-[10px] text-slate-500 uppercase flex items-center gap-1">
@@ -59,7 +59,7 @@ const ShortForecast: React.FC = () => {
             Nubes
           </span>
           <span className="text-3xl font-black text-white">26%</span>
-          <span className="text-[10px] text-slate-400">Mostly Clear</span>
+          <span className="text-[10px] text-slate-400">Mayormente despejado</span>
         </div>
       </div>
     </div>
